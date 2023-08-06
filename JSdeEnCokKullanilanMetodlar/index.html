@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <title>JsMetodlar</title>
+
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: inline;
+            padding-right: 10px;
+        }
+
+        .accordion {
+            --bs-accordion-active-bg: gray;
+            --bs-accordion-btn-focus-box-shadow: 0 0 0 0.1rem purple;
+        }
+
+        section {
+            border-bottom: 3px solid black;
+            padding: 25px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="bg-light p-2">
+            <div class="container">
+                <h2 class="text-center text-dark display-4 my-4">
+                    Js En Çok Kullanılam Metodlar
+                </h2>
+            </div>
+        </div>
+        <section>
+            <h3 class="text-danger my-4">
+                Filter Metodu
+            </h3>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFilter" aria-expanded="true" aria-controls="collapseFilter">
+                            Filter Ne Yapar ?
+                        </button>
+                    </h2>
+                    <div id="collapseFilter" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Elemanları tek tek gezer ve içerisindeki koşul doğruysa bu elemanı geri döner. Koşul
+                            yanlışsa elemanı geri dömez arrayden çıkartır.
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <p>
+                                <code>const points = [70, 75, 25, 35, 10, 80, 27]; 
+                                    const studentPassed = points.filter(point => {
+                                        return true;
+                                    });
+                                </code>
+                            </p>
+                            <p>Burada points ve studentPassed aynidir.</p>
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <p>
+                                <code>const points = [70, 75, 25, 35, 10, 80, 27]; 
+                                    const studentPassed = points.filter(point => {
+                                        return false;
+                                    });
+                                </code>
+                            </p>
+                            <p>Burada studentPassed boş bir arraydir.</p>
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <p>Fillter fonksiyonunun çalışma mantığı budur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p style="text-decoration: underline;">Öğrencilerimizin Puanları</p>
+                <ul id="filter">
+                </ul>
+                <div style="width: 100%; border: 1px solid gray;"></div>
+                <p style="text-decoration: underline;">Öğrencilerimizin Puanları 50 den büyükler</p>
+                <code>const studentPassed = points.filter(point => {
+                    return point > 50;
+                });</code>
+                <ul id="filter1">
+                </ul>
+
+                <div style="width: 100%; border: 1px solid gray; my-4"></div>
+                <p>4 tane objeden oluşan dizim objelerimin içinde 2 tane property var..</p>
+                <code>const students = [
+                    { name: 'furkan', passed: true },
+                    { name: 'seyda', passed: false },
+                    { name: 'hatice', passed: false },
+                    { name: 'elif', passed: true },
+                ];
+                </code>
+                <p>Dersten geçen öğrencilerimi Listelemek istiyorum.</p>
+                <code>const passingStudent = students.filter(student => {
+                    return student.passed;
+                });</code>
+                <p>Dersten geçemeyen öğrencilerimi Listelemek istiyorum.</p>
+                <code>const passingStudent = students.filter(student => {
+                    return !student.passed;
+                });</code>
+                <p>Tek satır return üm varsa parantezleri kullanmama gerek yok.</p>
+                <p>Örnek : </p>
+                <code> <p>const studentPassed = points.filter(point => point > 50);</p> 
+                    <p>const passingStudent = students.filter(student => student.passed);</p>  
+                    const passingStudent = students.filter(student => !student.passed);
+                </code>
+
+
+            </div>
+        </section>
+        <section>
+            <h3 class="text-danger my-4">
+                Map Metodu
+            </h3>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseMap" aria-expanded="true" aria-controls="collapseMap">
+                            Map Metodu Ne Yapar ?
+                        </button>
+                    </h2>
+                    <div id="collapseMap" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Map Metodu Elemanları tek tek dönerken bunları tek başına geriye döndürür. Tek başına geriye
+                            döndürmek istiyorsanız.
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+
+                            <code>
+                                <p>
+                                    const points = [70, 75, 25, 35, 10, 80, 27];
+                                </p>
+                                <p>
+                                    const newPoints = points.map(point => {
+                                        return point + 10;
+                                     })
+                                </p>
+                            </code>
+
+                            <p>
+                                İlk başta 70 girecek 80 olacak bütün elemanlar tek tek girecek bütün elemanlar 10
+                                artacak. Bütün elemanlara +10 eklenmiş hali <strong>newPoints</strong> adlı dizide
+                                tutulacak.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p style="text-decoration: underline;">Öğrenciler :</p>
+                <code>
+                    const studentsforMap = [
+                    { name: 'furkan', point: 40 },
+                    { name: 'seyda', point: 60 },
+                    { name: 'hatice', point: 30 },
+                    <p> { name: 'elif', point: 100 }
+                        ];</p>
+                </code>
+                <p>Eğer öğrencinin notu 50 nin aşağısında ise öğretmen bu öğrenciler 15 puan ekleyecek..</p>
+                <code>const newStudentsPoints = studentsforMap.map(student => {
+                    <p>                    if (student.point < 50) {
+                        return { name: student.name, point: student.point + 15  }
+                    }</p>
+                    <p>else{
+                        return  student;
+                    }
+                });</p>
+
+                </code>
+                <p>(4) [{…}, {…}, {…}, {…}]
+                    0: {name: 'furkan', point: 55}
+                    1: {name: 'seyda', point: 60}name: "seyda"point: 60[[Prototype]]: Object2: {name: 'hatice', point:
+                    45}3: {name: 'elif', point: 100}length: 4[[Prototype]]: Array(0)</p>
+
+                <p><strong>Objeleri böyle obje seklinde return etmek zorunda değiliz.</strong></p>
+
+                <code>
+                        const newStudentsPoints = studentsforMap.map(student => {
+                            if (student.point < 50) {
+                                student.point += 15;
+                            }
+                            return student;
+                        });
+                    </code>
+                <p><strong>Bu daha doğru bir yazım.</strong></p>
+
+            </div>
+        </section>
+        <section>
+            <h3 class="text-danger my-4">
+                Reduce Metodu
+            </h3>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseReduce" aria-expanded="true" aria-controls="collapseReduce">
+                            Reduce Metodu Ne Yapar ?
+                        </button>
+                    </h2>
+                    <div id="collapseReduce" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Reduce Metodu Datayı Oynamamızı Sağlar. Örneğin 50 den büyük 3 tane datam var. Yada daha
+                            karmaşık veriler var istediğim veriyi çekmek istiyorsam.Daha doğrusu dandik bir backendciniz
+                            varsa datayı modifiye etmek istiyorsanız reduce metodunu kullanabiliriz.
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <code>
+                                <p>
+                                    const result = points.reduce((value,point) => {
+                                        if(point > 50) {
+                                            value++;
+                                        }
+                                        return value;
+                                    },0); //value değerim 0 oldu.
+                                </p>
+                                <p>
+                                    console.log(result); //Log ==> 3
+                                </p>
+                            </code>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p style="text-decoration: underline;">Öğrenciler :</p>
+                <code>
+                    const studentsforReduce = [
+                    { name: 'furkan', point: 40 },
+                    { name: 'seyda', point: 60 },
+                    { name: 'hatice', point: 30 },
+                    { name: 'elif', point: 100 },
+                    { name: 'furkan', point: 80 },
+                    { name: 'seyda', point: 30 },
+                    { name: 'hatice', point: 60 },
+                    { name: 'elif', point: 40 }
+                ];
+                </code>
+                <p>Bize böyle bir data gelmiş olsun. Adam verileri name e göre gruplayıp datayı size göndermiyorsa..
+                </p>
+                <p>Ben Burada Furkan'in aldığı notları bastırmak istiyorum.</p>
+                <code>
+                    const furkanTotal = studentsforReduce.reduce((value,student)=>{
+                        if(student.name == 'furkan'){
+                            value += student.point;
+                        }
+                        return value;
+                    },0);
+                </code>
+                <p>Burada 1-student.point 40, value değerim başlangıçta 0 40 eklendi value 40 diğer point 80 diğer 40 +
+                    80 = 129</p>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-danger my-4">
+                Find Metodu
+            </h3>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFind" aria-expanded="true" aria-controls="collapseFind">
+                            Find Metodu Ne Yapar ?
+                        </button>
+                    </h2>
+                    <div id="collapseFind" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Id yi bulmada data geldi içerisinde bir değeri bulmada kullanılır. Bir handicap i var, bu
+                            örneğin notlarımız var puanlarımız var Burada
+                            70 den yüksek ilk notu getirmek istediğimizde find i kullanabiliriz. Yani içerisindeki koşuş
+                            true olduğunda ilk olanı getirir diğerlerine bakmaz bile
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <code>
+                                <p>
+                                    const points = [70, 75, 25, 35, 10, 80, 27];
+                                    const highPoint = points.find(point => {
+                                        return point > 70;
+                                    });
+                                </p>
+                                <p>
+                                    console.log(highPoint); //Log ==> 75
+                                </p>
+                            </code>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-danger my-4">
+                Push ve Pop Metodu
+            </h3>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsepush" aria-expanded="true" aria-controls="collapsepush">
+                            Push ve Pop Metodu Ne Yapar ?
+                        </button>
+                    </h2>
+                    <div id="collapsepush" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <code>
+                                <p>
+                                    const points = [70, 75, 25, 35, 10, 80, 27];
+                                    points.push(90);
+                                    console.log(points); //Log ==> (8) [70, 75, 25, 35, 10, 80, 27, 90]
+                                    <p>Pop en son elemanı çıkartır.</p>
+                                    points.pop();
+                                    console.log(points); //Log ==> (7) [70, 75, 25, 35, 10, 80, 27]
+                                </p>
+                            </code>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-danger my-4">
+                FindIndex Metodu
+            </h3>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFindIndex" aria-expanded="true" aria-controls="collapseFindIndex">
+                            FindIndex Metodu Ne Yapar ?
+                        </button>
+                    </h2>
+                    <div id="collapseFindIndex" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <code>
+                                <p>
+                                    const pointsforFindIndex = [70, 75, 25, 35, 10, 80, 27];
+
+                                    const arrayIndex = pointsforFindIndex.findIndex(point => point == 35);
+                                    points[arrayIndex] = 45;
+
+                                    console.log(points); //Log ==>  (7) [70, 75, 25, 45, 10, 80, 27]
+                                </p>
+
+                                <p>
+                                    const studentsforFindIndex = [
+                                        { name: 'furkan', point: 40 },
+                                        { name: 'seyda', point: 60 },
+                                        { name: 'hatice', point: 30 },
+                                        { name: 'elif', point: 100 },
+                                    ];
+                                    <p>
+                                        const objectIndex = studentsforFindIndex.findIndex(student => student.name == 'elif');
+                                        studentsforFindIndex[objectIndex].name = 'Hakan';
+                                    </p>
+  
+                                     <p>
+                                        console.log(studentsforFindIndex);
+                                        //Log ==>  (4) [{…}, {…}, {…}, {…}] 0 : {name: 'furkan', point: 40} 1 : {name: 'seyda', point: 60} 2 : {name: 'hatice', point: 30} 3 : {name: 'Hakan', point: 100}
+                                    </p>
+                                </p>
+                            </code>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-danger my-4">
+                Reverse Sort Metodu
+            </h3>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseReverse" aria-expanded="true" aria-controls="collapseReverse">
+                            Reverse Sort Metodu Ne Yapar ?
+                        </button>
+                    </h2>
+                    <div id="collapseReverse" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <code>
+                                <p>
+                                    const names = ['can', 'furkan', 'tuba', 'elif', 'gaye', 'osman'];
+
+                                    names.sort();
+                                    console.log(names); //Log => Array(6)0: "can"1: "elif": "furkan"3: "gaye"4: "osman"5: "tuba"
+
+                                    names.reverse();
+                                    console.log(names); //Log => (6) ['tuba', 'osman', 'gaye', 'furkan', 'elif', 'can']
+
+                                    const pointsforReverseSort = [70, 75, 25, 3, 10, 80, 27];
+
+                                    pointsforReverseSort.sort();
+                                    console.log(pointsforReverseSort); //Log => (7) [10, 25, 27, 3, 70, 75, 80] !!Karakter dizisinde olduğu gibi ilk sayıya bakıyor.
+
+                                    pointsforReverseSort.reverse();
+                                    console.log(pointsforReverseSort); //Log => (7) [80, 75, 70, 3, 27, 25, 10] !!Karakter dizisinde olduğu gibi ilk sayıya bakıyor.
+                                </p>
+                                <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                                <p>
+                                    //Nasıl tüm sayıyı okuyacak şekilde sıralayacağım ?
+
+                                    pointsforReverseSort.sort((a,b) => b - a); 
+                                    console.log(pointsforReverseSort); // Log =>  (7) [80, 75, 70, 27, 25, 10, 3]
+
+                                    pointsforReverseSort.sort((a,b) => a - b); 
+                                    console.log(pointsforReverseSort); // Log =>  (7) [3, 10, 25, 27, 70, 75, 80]
+                                </p>
+
+                                <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                                <p>
+                                    const studentsforReverseSort = [
+                                    { name: 'furkan', point: 40 },
+                                    { name: 'seyda', point: 60 },
+                                    { name: 'hatice', point: 30 },
+                                    { name: 'elif', point: 100 },
+                                ];
+
+
+                                //Sort Mantığı bu şekilde çalışıyor.
+                                // studentsforReverseSort.sort((a,b) => {
+                                //     if(a.point > b.point){
+                                //         return -1;
+                                //     }
+                                //     else if(b.point > a.point){
+                                //         return 1;
+                                //     }else{
+                                //         return 0;
+                                //     }
+                                // });
+
+
+                                //Kısaltılmış hali
+                                studentsforReverseSort.sort((a,b) =>  b.point - a.point); //b a dan büyükse return 1 dönüyor. b, a dan küçükse -1 dönüyor. eşitse bir şey dönmüyor.
+
+                                console.log(studentsforReverseSort); // Log => (4) [{…}, {…}, {…}, {…}]0: {name: 'elif', point: 100}1: {name: 'seyda', point: 60}2: {name: 'furkan', point: 40}3: {name: 'hatice', point: 30}
+                                </p>
+                            </code>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section>
+            <h3 class="text-danger my-4">
+                Multi Js Metodu Kullanma
+            </h3>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseMulti" aria-expanded="true" aria-controls="collapseMulti">
+                            Multi Js Metodu Kullanma
+                        </button>
+                    </h2>
+                    <div id="collapseMulti" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div style="width: 100%; border: 1px solid rebeccapurple;"></div>
+                            <code>
+
+                                <p>
+                                    const studentsforMulti = [
+                                        { name: 'furkan', point: 40 },
+                                        { name: 'seyda', point: 60 },
+                                        { name: 'hatice', point: 30 },
+                                        { name: 'elif', point: 100 },
+                                        { name: 'deniz', point: 55 },
+                                        { name: 'osman', point: 33 },
+                                        { name: 'dilan', point: 88 },
+                                        { name: 'isa', point: 11 }
+                                    ];
+                                </p>
+
+                                <p>
+                                //Puanı 50 den düşük öğrencilere puan eklemek istiyorum 15 puan ve bunlarin yei notu basılmak isteniyor.
+
+                                <p>
+                                    const filtered = studentsforMulti.filter(student => student.point < 50);
+                                    const plusPoint = filtered.map(student => {
+                                        return `${student.name} adlı öğrencinin yeni notu ${student.point + 15}`;
+                                    });
+                                </p>
+
+
+                                console.log(plusPoint); // 0: "furkan adlı öğrencinin yeni notu 55"1: "hatice adlı öğrencinin yeni notu 45"2: "osman adlı öğrencinin yeni notu 48"3:"isa adlı öğrencinin yeni notu 26"
+                                </p>
+
+                                <p>
+                                    //İç içe kullanımı doğru yazımı..
+
+                                    <p>
+                                        const newNotes = studentsforMulti.filter(student => student.point < 50)
+                                        .map(student =>  `${student.name} adlı öğrencinin yeni notu ${student.point + 15}`);
+                                    </p>
+
+
+                                    console.log(newNotes);// 0: "furkan adlı öğrencinin yeni notu 55"1: "hatice adlı öğrencinin yeni notu 45"2: "osman adlı öğrencinin yeni notu 48"3:"isa adlı öğrencinin yeni notu 26"
+                                </p>
+                            </code>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="furkan.js"></script>
+</body>
+
+</html>
