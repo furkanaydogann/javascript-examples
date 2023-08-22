@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tas Kagit Makas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="gameContainer">
+        <div class="header">
+            <h1>Taş Kağıt Makas Oyunu</h1>
+        </div>
+
+        <h2>Furkan Aydoğan <span class="choice" id="playerTurn"></span>- Skor : <span id="playerScore">0</span></h2>
+
+        <div class="playerContainer" id="player">
+            <i class="icon fa-regular fa-hand-back-fist" id="playerRock" title="Taş" onclick="select('rock')"></i>
+            <i class="icon fa-regular fa-hand" id="playerPaper" title="Kağıt" onclick="select('paper')"></i>
+            <i class="icon fa-regular fa-hand-scissors" id="playerScissors" title="Makas" onclick="select('scissors')"></i>
+        </div>
+
+        <h2>Bilgisayar <span class="choice" id="computerTurn"></span>- Skor : <span id="computerScore">0</span></h2>
+
+        <div class="playerContainer" id="computer">
+            <i class="icon fa-regular fa-hand-back-fist" id="computerRock" title="Taş"></i>
+            <i class="icon fa-regular fa-hand" id="computerPaper" title="Kağıt"></i>
+            <i class="icon fa-regular fa-hand-scissors" id="computerScissors" title="Makas"></i>
+        </div>
+
+        <div class="resetContainer">
+            <i class="resetIcon fa-solid fa-rotate" title="Sıfırla" onclick="resetAll()"></i>
+        </div>
+
+        <div class="resultContainer">
+            <h3 class="resultText" id="resultText"></h3>
+        </div>
+    </div>
+
+    <script src="confetti.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
