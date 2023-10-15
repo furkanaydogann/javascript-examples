@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlinks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <h1 id="show-modal">Backlink Ekle</h1>
+
+    <div class="container" id="backlinks-container"></div>
+
+    <div class="modal-container" id="modal">
+        <div class="model">
+            <div class="model-header">
+                <h3>Backlink Ekle</h3>
+                <i class="fas fa-times close-icon" id="close-model"></i>
+            </div>
+
+            <div class="model-content">
+                <form id="backlink-form">
+                    <div class="form-group">
+                        <label class="form-label">Website Adı</label>
+                        <input class="form-input" type="text" id="website-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Website Adresi</label>
+                        <input class="form-input" type="text" id="website-url">
+                    </div>
+                    <button type="submit">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
